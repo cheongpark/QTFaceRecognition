@@ -1,0 +1,4 @@
+<RCC>
+    <qresource prefix="QtFaceRecognition">
+    </qresource>
+</RCC>
