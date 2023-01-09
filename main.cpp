@@ -3,7 +3,7 @@
 
 int main(int argc, char *argv[]) {
     QApplication a(argc, argv);
-    a.setWindowIcon(QIcon("icon.jpg"));
+    a.setWindowIcon(QIcon("Image/icon.jpg"));
     QtFaceRecognition w;
     w.show();
     return a.exec();

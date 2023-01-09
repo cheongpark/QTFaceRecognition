@@ -5,6 +5,8 @@
 
 #include "CameraOptions.h"
 
+#include "Model.h"
+
 
 class QtFaceRecognition : public QMainWindow {
     Q_OBJECT

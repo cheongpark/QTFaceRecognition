@@ -8,11 +8,11 @@ FaceRecognition::FaceRecognition() {
 FaceRecognition::~FaceRecognition() {
 }
 
-int FaceRecognition::faceCount(cv::Mat Image) {
-	dlib::cv_image<dlib::bgr_pixel> cimg(Image);
+int FaceRecognition::faceCount(cv::Mat image) {
+	dlib::cv_image<dlib::bgr_pixel> cimg(image);
 	return detector(cimg).size();
 }
 
-int faceCount(dlib::cv_image<dlib::bgr_pixel> Image) {
-	return detector(Image).size();
+int FaceRecognition::faceCount(dlib::cv_image<dlib::bgr_pixel> image) {
+	return detector(image).size();
 }

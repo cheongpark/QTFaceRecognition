@@ -9,15 +9,13 @@
 
 #include "ShowCam.h"
 
-#include "QDebug"
+#include <QDebug>
 
 class CameraOptions : public QObject {
 	Q_OBJECT
 public:
 	CameraOptions(Ui::QtFaceRecognitionClass* ui, QObject* parent = nullptr);
 	~CameraOptions();
-
-	void stopCam();
 
 private:
 	void resetCam();

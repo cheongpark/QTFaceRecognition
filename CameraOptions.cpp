@@ -5,12 +5,14 @@ CameraOptions::CameraOptions(Ui::QtFaceRecognitionClass* ui, QObject* parent) {
     this->status = ui->statusBar;
     this->camLabel = ui->label;
 
+    cam = new ShowCam(camLabel, 10, this);
+
     showCameraOptions();
     resetCam();
 }
 
 CameraOptions::~CameraOptions() { //cameraOptions가 사라지면 실행
-    stopCam(); //이거 안하면 메모리에 계속 카메라가 남아있어서 뒤지나봄 (또 뒤짐)
+    cam->stop(); //이거 안하면 메모리에 계속 카메라가 남아있어서 뒤지나봄 (또 뒤짐)
     delete cam;
 
     delete camMenu;
@@ -18,15 +20,8 @@ CameraOptions::~CameraOptions() { //cameraOptions가 사라지면 실행
     delete camLabel;
 }
 
-void CameraOptions::stopCam() {
-    cam->stop();
-    //cam->quit();
-    cam->wait();
-}
-
 void CameraOptions::resetCam() {
-    cam = new ShowCam(camLabel, 0);
-    cam->start();
+    cam->start(0);
 }
 
 void CameraOptions::showCameraOptions() {
@@ -50,11 +45,10 @@ void CameraOptions::onCameraActionTriggered() {
 
         if (!cap->isOpened()) //웹캠 찾지 못하면
             status->showMessage(QString("%1 Camera Not Connected..").arg(cameraNum));
-    
-        if (cam->isRunning()) //이거 처음에 하게 하면 오류남
-            stopCam();
+        
+        cam->stop();
 
-        cam = new ShowCam(camLabel, cameraNum); //띄울 라벨과 카메라 번호 지정
-        cam->start(); //캠을 시작해서 화면에 표시
+         //카메라 번호 지정
+        cam->start(cameraNum); //캠을 시작해서 화면에 표시
     }
 }
