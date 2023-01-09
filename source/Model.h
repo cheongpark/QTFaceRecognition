@@ -44,11 +44,13 @@ private:
 		dlib::input_rgb_image_sized<150>
 		>>>>>>>>>>>>;
 
-	dlib::shape_predictor* sp;
-	dlib::shape_predictor* fastsp;
-	anet_type* net;
+	dlib::shape_predictor* sp; //68점 찍는거
+	dlib::shape_predictor* fastsp; //5점 찍는거 더 빠름
+	anet_type* net; //벡터로 변환해주는거
 
+	//Model의 파일이 있는지 확인
 	bool modelFileCheck(const std::string path);
+	//모델을 로드하는 것
 	void loadModel();
 };
 

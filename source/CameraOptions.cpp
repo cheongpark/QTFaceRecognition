@@ -5,10 +5,10 @@ CameraOptions::CameraOptions(Ui::QtFaceRecognitionClass* ui, QObject* parent) {
     this->status = ui->statusBar;
     this->camLabel = ui->label;
 
-    cam = new ShowCam(camLabel, 10, this);
+    cam = new ShowCam(camLabel, 10, this); //출력할 라벨, 몇 ms 마다 카메라를 업데이트 시킬지, 부모가 누구인지
 
-    showCameraOptions();
-    resetCam();
+    showCameraOptions(); //카메라 옵션을 보여주고
+    resetCam(); //처음에 키기 때문에 0번째 카메라로 보여지게
 }
 
 CameraOptions::~CameraOptions() { //cameraOptions가 사라지면 실행
@@ -30,7 +30,7 @@ void CameraOptions::showCameraOptions() {
     //카메라 번호와 이름으로 구조체를 만들고 벡터에 저장하고 표시하는 방식으로
     while (cap->open(numCameras)) {
         QAction* action = new QAction(QString("%1 Camera").arg(numCameras), this);
-        connect(action, &QAction::triggered, this, &CameraOptions::onCameraActionTriggered);
+        connect(action, &QAction::triggered, this, &CameraOptions::onCameraActionTriggered); //메뉴를 트리거(클릭)하면 onCameraActionTriggered를 실행함
         camMenu->addAction(action);
         numCameras++;
     }
@@ -46,7 +46,7 @@ void CameraOptions::onCameraActionTriggered() {
         if (!cap->isOpened()) //웹캠 찾지 못하면
             status->showMessage(QString("%1 Camera Not Connected..").arg(cameraNum));
         
-        cam->stop();
+        cam->stop(); //카메라를 바꾸면 어차피 끄고 실행하기 때문에 무조건 끄고 실행
 
          //카메라 번호 지정
         cam->start(cameraNum); //캠을 시작해서 화면에 표시
