@@ -1,14 +1,10 @@
 #pragma once
 
-#include <QtWidgets/QMainWindow>
-
-#include <string>
+#include <QMainWindow>
 #include "ui_QtFaceRecognition.h"
 
-#include <dlib/opencv.h>
-#include <opencv2/highgui.hpp>
+#include "CameraOptions.h"
 
-#include "getCam.h"
 
 class QtFaceRecognition : public QMainWindow {
     Q_OBJECT

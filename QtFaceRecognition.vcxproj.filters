@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>qml;cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>qrc;rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Form Files">
+      <UniqueIdentifier>{99349809-55BA-4b9d-BF79-8FDBB0286EB3}</UniqueIdentifier>
+      <Extensions>ui</Extensions>
+    </Filter>
+    <Filter Include="Translation Files">
+      <UniqueIdentifier>{639EADAA-A684-42e4-A9AD-28FC9BCB8F7C}</UniqueIdentifier>
+      <Extensions>ts</Extensions>
+    </Filter>
+    <Filter Include="Source Files\Cam">
+      <UniqueIdentifier>{2f893bb1-b044-4c67-aa91-619421ace3bb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Cam">
+      <UniqueIdentifier>{be4a3ba9-d4f4-48ac-a8b2-c673db333094}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Face">
+      <UniqueIdentifier>{1e0f91fc-1361-435d-9616-8722f7678a92}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Face">
+      <UniqueIdentifier>{37de42bc-e327-450f-92bc-75cf8e3e71eb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Image">
+      <UniqueIdentifier>{25c50eca-a0f0-49dc-aeb7-7e988e14dce9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Image\Icon">
+      <UniqueIdentifier>{0a3155c5-06c2-4e28-b891-33eee96402e1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Model">
+      <UniqueIdentifier>{007a6634-d29d-4ea3-89bc-61320a3ef7a7}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <QtRcc Include="QtFaceRecognition.qrc">
+      <Filter>Resource Files</Filter>
+    </QtRcc>
+    <QtUic Include="QtFaceRecognition.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtMoc Include="QtFaceRecognition.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <ClCompile Include="QtFaceRecognition.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CameraOptions.cpp">
+      <Filter>Source Files\Cam</Filter>
+    </ClCompile>
+    <ClCompile Include="ShowCam.cpp">
+      <Filter>Source Files\Cam</Filter>
+    </ClCompile>
+    <ClCompile Include="FaceRecognition.cpp">
+      <Filter>Source Files\Face</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="CameraOptions.h">
+      <Filter>Header Files\Cam</Filter>
+    </QtMoc>
+    <QtMoc Include="ShowCam.h">
+      <Filter>Header Files\Cam</Filter>
+    </QtMoc>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="FaceRecognition.h">
+      <Filter>Header Files\Face</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Image\logo.jpg">
+      <Filter>Image</Filter>
+    </Image>
+    <Image Include="Image\icon.jpg">
+      <Filter>Image\Icon</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Dlib_Model\shape_predictor_5_face_landmarks.dat">
+      <Filter>Model</Filter>
+    </None>
+    <None Include="Dlib_Model\shape_predictor_68_face_landmarks_GTX.dat">
+      <Filter>Model</Filter>
+    </None>
+    <None Include="Dlib_Model\dlib_face_recognition_resnet_model_v1.dat">
+      <Filter>Model</Filter>
+    </None>
+  </ItemGroup>
+</Project>

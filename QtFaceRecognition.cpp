@@ -2,8 +2,8 @@
 
 QtFaceRecognition::QtFaceRecognition(QWidget *parent) : QMainWindow(parent) {
     ui.setupUi(this);
-
-    getCam* cam = new getCam(this);
+    
+    CameraOptions* camOpt = new CameraOptions(&ui);
 }
 
 QtFaceRecognition::~QtFaceRecognition() {
