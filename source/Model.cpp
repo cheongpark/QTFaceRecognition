@@ -21,7 +21,7 @@ bool Model::modelFileCheck(const std::string path) {
 }
 
 void Model::loadModel() {
-	/* Debug 모드에선 작동하지만 Release 모드에선 작동 안됨
+	// Debug 모드에선 작동하지만 Release 모드에선 작동 안됨
 	try {
 		if (modelFileCheck(spPath))
 			dlib::deserialize(spPath) >> *sp;
@@ -33,9 +33,7 @@ void Model::loadModel() {
 			dlib::deserialize(ResNetPath) >> *net;
 	}
 	catch (const std::exception& e) {
-		qDebug() << e.what() << "Model Not Found!";
+		//qDebug() << e.what() << "Model Not Found!";
 		//exit(-1);
 	}
-	*/
-	
 }

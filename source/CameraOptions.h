@@ -8,8 +8,7 @@
 #include <opencv2/highgui.hpp>
 
 #include "ShowCam.h"
-
-#include <QDebug>
+//#include <QDebug>
 
 class CameraOptions : public QObject {
 	Q_OBJECT
@@ -22,6 +21,7 @@ private:
 
 	void showCameraOptions();
 	void onCameraActionTriggered();
+	void noCameraActionTriggered();
 
 	QMenu* camMenu;
 	QStatusBar* status;
@@ -29,7 +29,7 @@ private:
 
 	ShowCam* cam;
 	cv::VideoCapture* cap = new cv::VideoCapture();
-
+	
 	/*
 	struct CameraInfo {
 		QString name;

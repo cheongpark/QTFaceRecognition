@@ -34,16 +34,22 @@ void CameraOptions::showCameraOptions() {
         camMenu->addAction(action);
         numCameras++;
     }
+    if (numCameras == 0) {
+        QAction* noAction = new QAction(QString("Not Found Camera").arg(numCameras), this);
+        connect(noAction, &QAction::triggered, this, &CameraOptions::noCameraActionTriggered); //메뉴를 트리거(클릭)하면 onCameraActionTriggered를 실행함
+        camMenu->addAction(noAction);
+    }
 }
 
 void CameraOptions::onCameraActionTriggered() { 
     QAction* action = qobject_cast<QAction*>(sender());
     if (action) {
         int cameraNum = action->text().remove(" Camera").toInt();
-        status->showMessage(QString("%1 Camera Connected!").arg(cameraNum));
         cap->open(cameraNum);
 
-        if (!cap->isOpened()) //웹캠 찾지 못하면
+        if (cap->isOpened()) //웹캠 찾으면
+            status->showMessage(QString("%1 Camera Connected!").arg(cameraNum));
+        else
             status->showMessage(QString("%1 Camera Not Connected..").arg(cameraNum));
         
         cam->stop(); //카메라를 바꾸면 어차피 끄고 실행하기 때문에 무조건 끄고 실행
@@ -51,4 +57,8 @@ void CameraOptions::onCameraActionTriggered() {
          //카메라 번호 지정
         cam->start(cameraNum); //캠을 시작해서 화면에 표시
     }
+}
+
+void CameraOptions::noCameraActionTriggered() {
+    status->showMessage(QString("Camera Not Found"));
 }

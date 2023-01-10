@@ -19,7 +19,7 @@ private:
 
 	QTimer* timer;
 	cv::VideoCapture* cap;
-	cv::Mat* frame;
+	cv::Mat frame;
 	QLabel* label;
 
 	QImage qimg;
